@@ -3,7 +3,7 @@ import Home from "./components/Home";
 import Footer from "./components/Footer";
 import Registro from "./components/Registro";
 import Login from "./components/Login";
-import Cart from "./components/cart";
+import Cart from "./components/Cart";
 
 function App() {
   return (
