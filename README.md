@@ -1,19 +1,29 @@
-# React + Vite
+🍕 Pizza App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación web de una pizzería desarrollada con React.
 
-Currently, two official plugins are available:
+📋 Descripción
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Este proyecto simula una aplicación de pedidos de pizza. Permite visualizar diferentes pizzas, conocer sus ingredientes y precios, y agregarlas a un carrito de compras.
 
-## React Compiler
+🚀 Tecnologías utilizadas
+React
+JavaScript
+HTML
+CSS
+Bootstrap
+Vite
+✨ Funcionalidades
+Visualización de pizzas.
+Tarjetas con imagen, nombre, precio e ingredientes.
+Descripción de cada pizza.
+Botón "Ver más" para mostrar la descripción completa.
+Carrito de compras.
+Aumentar y disminuir la cantidad de pizzas.
+Eliminación de una pizza cuando su cantidad llega a 0.
+Cálculo del total de la compra.
+Botón "Pagar" como simulación.
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+👩‍💻 Autor
 
-Note: This will impact Vite dev & build performances.
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
-# Pizzeria-Mamamia
+Proyecto desarrollado como parte de una actividad de aprendizaje de React.
