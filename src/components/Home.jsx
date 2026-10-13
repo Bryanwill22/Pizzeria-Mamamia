@@ -1,6 +1,5 @@
 import Header from "./Header";
 import CardPizza from "./CardPizza";
-import { pizzas } from "./pizzas";
 
 function Home() {
   return (
