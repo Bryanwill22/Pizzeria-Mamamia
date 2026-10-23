@@ -1,87 +1,63 @@
-import { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css";
 
 function Navbar() {
-
-  // Simulación del estado de inicio de sesión
-  const [token, setToken] = useState(false);
-
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+    <nav className="navbar navbar-expand-lg navbar-mamamia">
+      <div className="container py-2">
+        {/* LOGO */}
+        <Link className="navbar-brand brand-mamamia" to="/Home">
+          <span className="brand-icon">🍕</span>
+          <span>
+            Pizza <strong>Mamamia</strong>
+            <small>EL SABOR DE ITALIA</small>
+          </span>
+        </Link>
 
-      <div className="container-fluid">
-
-        {/* Botón Home: siempre visible */}
-        <a className="navbar-brand" href="#">
-          Home
-        </a>
-
+        {/* BOTÓN PARA MÓVILES */}
         <button
           className="navbar-toggler"
           type="button"
           data-bs-toggle="collapse"
-          data-bs-target="#navbarNav"
-          aria-controls="navbarNav"
+          data-bs-target="#menuMamamia"
+          aria-controls="menuMamamia"
           aria-expanded="false"
-          aria-label="Toggle navigation"
+          aria-label="Abrir menú"
         >
           <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div className="collapse navbar-collapse" id="navbarNav">
+        {/* MENÚ */}
+        <div className="collapse navbar-collapse" id="menuMamamia">
+          <div className="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+            <NavLink className="nav-link nav-mamamia" to="/Home">
+              Inicio
+            </NavLink>
 
-          <ul className="navbar-nav">
+            <NavLink className="nav-link nav-mamamia" to="/Pizzas">
+              Nuestras pizzas
+            </NavLink>
 
-            {/* Si el usuario está logueado */}
-            {token ? (
-              <>
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Profile
-                  </a>
-                </li>
+            <NavLink className="nav-link nav-mamamia" to="/Registro">
+              Registro
+            </NavLink>
 
-                <li className="nav-item">
-                  <button
-                    className="nav-link btn btn-link"
-                    onClick={() => setToken(false)}
-                  >
-                    Logout
-                  </button>
-                </li>
+            <NavLink className="nav-link nav-mamamia" to="/Login">
+              Iniciar sesión
+            </NavLink>
 
-                <li className="nav-item">
-                  <a className="nav-link disabled" href="#">
-                    Total : $25.000
-                  </a>
-                </li>
-              </>
-            ) : (
+            <NavLink className="nav-link nav-mamamia" to="/Profile">
+              Mi perfil
+            </NavLink>
 
-              /* Si el usuario NO está logueado */
-              <>
-                <li className="nav-item">
-                  <button
-                    className="nav-link btn btn-link"
-                    onClick={() => setToken(true)}
-                  >
-                    Login
-                  </button>
-                </li>
-
-                <li className="nav-item">
-                  <a className="nav-link" href="#">
-                    Register
-                  </a>
-                </li>
-              </>
-
-            )}
-
-          </ul>
-
+            <Link className="cart-mamamia" to="/Cart">
+              <span>🛒</span>
+              <span>Mi carrito</span>
+              <strong>$0</strong>
+            </Link>
+          </div>
         </div>
       </div>
-
     </nav>
   );
 }

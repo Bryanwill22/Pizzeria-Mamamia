@@ -1,21 +1,26 @@
+import { Routes, Route } from "react-router-dom";
+import Pizzas from "./View/Pizzas";
+import Registro from "./View/Registro";
+import Login from "./View/Login";
+import Cart from "./View/Cart";
+import Home from "./View/Home";
+import Profile from "./components/Profile";
+import NotFound from "./components/NotFound";
 import Navbar from "./components/Navbar";
-// import Home from "./components/Home";
-import Footer from "./components/Footer";
-// import Registro from "./components/Registro";
-// import Login from "./components/Login";
-// import Cart from "./components/Cart";
-import Pizzas from "./components/Pizzas";
 
 function App() {
   return (
     <>
       <Navbar />
-      {/*   <Home /> */}
-      <Pizzas />
-      {/*   <Registro /> */}
-      {/*   <Login />    */}
-      {/*    <Cart />  */}
-      <Footer />
+      <Routes>
+        <Route path="/Home" element={<Home />} />
+        <Route path="/Registro" element={<Registro />} />
+        <Route path="/Login" element={<Login />} />
+        <Route path="/Cart" element={<Cart />} />
+        <Route path="/Pizzas" element={<Pizzas />} />
+        <Route path="/Profile" element={<Profile />} />
+        <Route path="/404" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
