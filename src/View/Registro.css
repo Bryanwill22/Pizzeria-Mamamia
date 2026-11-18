@@ -1,0 +1,166 @@
+/* CONTENEDOR PRINCIPAL */
+.registro-container {
+  min-height: 85vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #1b1b1b, #343434);
+}
+
+/* TARJETA */
+.registro-card {
+  width: 100%;
+  max-width: 460px;
+  background: #ffffff;
+  padding: 38px 35px;
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35);
+  text-align: center;
+  animation: registroAparecer 0.6s ease;
+}
+
+/* LOGO */
+.registro-logo {
+  width: 75px;
+  height: 75px;
+  margin: 0 auto 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff0ed;
+  border-radius: 50%;
+  font-size: 40px;
+}
+
+/* TITULOS */
+.registro-card h2 {
+  color: #252525;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.registro-subtitle {
+  color: #888;
+  margin-bottom: 28px;
+}
+
+/* CAMPOS */
+.registro-group {
+  text-align: left;
+  margin-bottom: 19px;
+}
+
+.registro-group label {
+  display: block;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 8px;
+}
+
+/* INPUTS */
+.registro-input {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 0 13px;
+  transition: 0.3s;
+}
+
+.registro-input:focus-within {
+  border-color: #e6392f;
+  box-shadow: 0 0 0 3px rgba(230, 57, 47, 0.12);
+}
+
+.registro-input > span {
+  font-size: 17px;
+}
+
+.registro-input input {
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  padding: 14px 0;
+  font-size: 14px;
+  background: transparent;
+}
+
+/* VER CONTRASEÑA */
+.registro-ver {
+  border: none;
+  background: transparent;
+  color: #e6392f;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.registro-ver:hover {
+  color: #a81717;
+}
+
+/* BOTON */
+.registro-button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: #e6392f;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.registro-button:hover {
+  background: #bd251e;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(230, 57, 47, 0.3);
+}
+
+/* PIE */
+.registro-footer {
+  margin-top: 25px;
+  font-size: 14px;
+}
+
+.registro-footer p {
+  display: inline;
+  color: #777;
+}
+
+.registro-footer a {
+  margin-left: 5px;
+  color: #e6392f;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.registro-footer a:hover {
+  text-decoration: underline;
+}
+
+/* ANIMACION */
+@keyframes registroAparecer {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .registro-card {
+    padding: 30px 22px;
+  }
+}

@@ -1,0 +1,271 @@
+/* PÁGINA PRINCIPAL */
+.pizzas-page {
+  min-height: 85vh;
+  background: #f7f7f7;
+  padding-bottom: 40px;
+}
+
+/* ENCABEZADO */
+.pizzas-header {
+  text-align: center;
+  padding: 55px 20px 35px;
+  background: linear-gradient(135deg, #1b1b1b, #302323);
+  color: white;
+  margin-bottom: 30px;
+}
+
+.pizzas-etiqueta {
+  display: inline-block;
+  color: #ff5555;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 12px;
+}
+
+.pizzas-header h1 {
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  margin-bottom: 12px;
+}
+
+.pizzas-header h1 span {
+  color: #ed3737;
+}
+
+.pizzas-header p {
+  color: #d0d0d0;
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.pizzas-divider {
+  width: 65px;
+  height: 4px;
+  background: #e6392f;
+  border-radius: 10px;
+  margin: auto;
+}
+
+/* CONTADOR DE PIZZAS */
+.pizzas-resultados {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+  color: #777;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* TARJETAS */
+.pizza-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  background: white;
+  border-radius: 17px;
+  overflow: hidden;
+  border: 1px solid #eeeeee;
+  box-shadow: 0 5px 18px rgba(0, 0, 0, 0.07);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.pizza-card:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.13);
+}
+
+/* IMAGEN */
+.pizza-imagen-container {
+  height: 235px;
+  position: relative;
+  overflow: hidden;
+  background: #eeeeee;
+}
+
+.pizza-imagen {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.pizza-card:hover .pizza-imagen {
+  transform: scale(1.07);
+}
+
+.pizza-etiqueta {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: #d62828;
+  color: white;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+/* INFORMACIÓN */
+.pizza-info {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.pizza-titulo {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.pizza-titulo h3 {
+  color: #262626;
+  font-size: 20px;
+  font-weight: 800;
+  text-transform: capitalize;
+  margin: 0;
+}
+
+.pizza-precio {
+  color: #d62828;
+  font-size: 18px;
+  font-weight: 900;
+  white-space: nowrap;
+}
+
+.pizza-descripcion {
+  color: #777;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-top: 13px;
+  margin-bottom: 18px;
+}
+
+/* INGREDIENTES */
+.pizza-ingredientes {
+  margin-top: auto;
+  margin-bottom: 20px;
+}
+
+.ingredientes-titulo {
+  display: block;
+  color: #999;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  margin-bottom: 9px;
+}
+
+.ingredientes-lista {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ingrediente-tag {
+  background: #fff0ed;
+  color: #b52b25;
+  padding: 5px 9px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* BOTÓN */
+.pizza-boton {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 9px;
+  background: #d62828;
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.pizza-boton:hover {
+  background: #a81717;
+  box-shadow: 0 5px 13px rgba(214, 40, 40, 0.25);
+  transform: translateY(-2px);
+}
+
+.pizza-boton:active {
+  transform: scale(0.98);
+}
+
+/* CARGA Y ESTADOS */
+.pizzas-estado {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 30px 20px;
+  color: #555;
+}
+
+.pizzas-estado .spinner-border {
+  width: 45px;
+  height: 45px;
+  margin-bottom: 15px;
+}
+
+.pizzas-estado h3 {
+  color: #252525;
+  font-weight: 800;
+  margin-top: 12px;
+}
+
+.pizzas-estado p {
+  color: #888;
+}
+
+.pizzas-error-icon {
+  font-size: 45px;
+}
+
+.btn-reintentar {
+  background: #d62828;
+  color: white;
+  border: none;
+  padding: 11px 25px;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.btn-reintentar:hover {
+  background: #a81717;
+}
+
+/* RESPONSIVE */
+@media (max-width: 576px) {
+  .pizzas-header {
+    padding: 40px 15px 30px;
+  }
+
+  .pizzas-header p {
+    font-size: 14px;
+  }
+
+  .pizza-imagen-container {
+    height: 220px;
+  }
+
+  .pizza-info {
+    padding: 17px;
+  }
+
+  .pizza-titulo h3 {
+    font-size: 18px;
+  }
+}

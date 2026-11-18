@@ -170,3 +170,45 @@
     font-size: 15px;
   }
 }
+
+/* MENÚ DESPLEGABLE TRANSPARENTE */
+@media (max-width: 991px) {
+  .navbar-mamamia .navbar-collapse {
+    background: transparent;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-radius: 0 0 12px 12px;
+    padding: 15px;
+    margin-top: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+}
+
+/* EFECTO TRANSPARENTE DEL MENÚ */
+@media (max-width: 991px) {
+  /* Navbar cuando el menú está abierto */
+  .navbar-mamamia.menu-activo {
+    background: rgba(23, 23, 23, 0.72) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  /* Panel desplegable */
+  .navbar-mamamia .navbar-collapse {
+    background: transparent !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    padding-top: 15px;
+  }
+
+  /* Enlaces */
+  .navbar-mamamia .navbar-collapse .nav-mamamia {
+    color: #ffffff !important;
+  }
+
+  .navbar-mamamia .navbar-collapse .nav-mamamia:hover,
+  .navbar-mamamia .navbar-collapse .nav-mamamia.active {
+    color: #ff5555 !important;
+  }
+}

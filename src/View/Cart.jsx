@@ -19,7 +19,7 @@ function Cart() {
 
       {/* BOTÓN SEGUIR COMPRANDO */}
       <div className="mb-4">
-        <Link to="/Home" className="btn btn-outline-danger">
+        <Link to="/Pizzas" className="btn btn-outline-danger">
           ← Seguir comprando
         </Link>
       </div>

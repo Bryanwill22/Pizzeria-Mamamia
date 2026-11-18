@@ -1,0 +1,489 @@
+/* =========================
+   ESTILOS GENERALES
+========================= */
+
+.home-mamamia {
+  color: #292929;
+  background: #fff;
+  overflow: hidden;
+}
+
+.home-mamamia h1,
+.home-mamamia h2,
+.home-mamamia h3,
+.home-mamamia p {
+  margin-top: 0;
+}
+
+.home-section-tag {
+  display: inline-block;
+  color: #c9232d;
+  font-size: 0.76rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  margin-bottom: 15px;
+}
+
+/* =========================
+   PORTADA
+========================= */
+
+.home-hero {
+  min-height: 570px;
+  background:
+    linear-gradient(90deg, rgba(15, 13, 13, 0.94), rgba(15, 13, 13, 0.35)),
+    url("https://images.unsplash.com/photo-1579751626657-72bc17010498?auto=format&fit=crop&w=1800&q=90")
+      center/cover no-repeat;
+  display: flex;
+  align-items: center;
+}
+
+.home-hero-overlay {
+  width: 100%;
+  padding: 100px 0;
+}
+
+.home-hero-content {
+  color: white;
+}
+
+.home-eyebrow {
+  display: inline-block;
+  color: #ff7777;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 22px;
+}
+
+.home-hero h1 {
+  max-width: 760px;
+  font-size: clamp(2.7rem, 6vw, 5rem);
+  line-height: 1.08;
+  font-weight: 900;
+  margin-bottom: 25px;
+}
+
+.home-hero h1 span {
+  color: #ed343d;
+}
+
+.home-hero p {
+  max-width: 590px;
+  color: #e2e2e2;
+  font-size: 1.12rem;
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.home-hero-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.home-btn-primary,
+.home-btn-secondary {
+  display: inline-block;
+  text-decoration: none;
+  padding: 14px 27px;
+  border-radius: 7px;
+  font-weight: 800;
+  transition: 0.25s ease;
+}
+
+.home-btn-primary {
+  background: #d92732;
+  color: white;
+  border: 2px solid #d92732;
+}
+
+.home-btn-primary:hover {
+  background: #ad1721;
+  border-color: #ad1721;
+  color: white;
+  transform: translateY(-3px);
+}
+
+.home-btn-secondary {
+  color: white;
+  border: 2px solid white;
+}
+
+.home-btn-secondary:hover {
+  color: #222;
+  background: white;
+}
+
+/* =========================
+   PRESENTACIÓN
+========================= */
+
+.home-about {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 65px;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.home-about-image {
+  position: relative;
+}
+
+.home-about-image img {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 15px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.16);
+}
+
+.home-image-label {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  flex-direction: column;
+  background: #c9232d;
+  color: white;
+  padding: 17px 23px;
+  border-radius: 9px;
+}
+
+.home-image-label strong {
+  font-size: 1.8rem;
+  line-height: 1.2;
+}
+
+.home-image-label span {
+  font-size: 0.85rem;
+}
+
+.home-about-text h2,
+.home-difference h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  line-height: 1.2;
+  margin-bottom: 22px;
+}
+
+.home-about-text p,
+.home-difference p {
+  color: #666;
+  line-height: 1.9;
+  font-size: 1rem;
+}
+
+.home-text-link {
+  display: inline-block;
+  color: #c9232d;
+  font-weight: 800;
+  text-decoration: none;
+  margin-top: 12px;
+}
+
+.home-text-link:hover {
+  color: #8f111b;
+}
+
+/* =========================
+   PROCESO DE PREPARACIÓN
+========================= */
+
+.home-process {
+  background: #f5f3f1;
+  padding: 90px 0;
+}
+
+.home-section-heading {
+  max-width: 720px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.home-section-heading h2 {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+
+.home-section-heading p {
+  color: #707070;
+  line-height: 1.7;
+}
+
+.home-process-card {
+  height: 100%;
+  padding: 35px 28px;
+  background: white;
+  border-radius: 13px;
+  text-align: center;
+  border: 1px solid #eee;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+  transition: 0.3s ease;
+}
+
+.home-process-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.home-process-icon {
+  width: 75px;
+  height: 75px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  background: #fff0f0;
+  font-size: 2rem;
+}
+
+.home-process-card h3 {
+  font-size: 1.25rem;
+  font-weight: 850;
+  margin-bottom: 15px;
+}
+
+.home-process-card p {
+  color: #707070;
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+/* =========================
+   DIFERENCIA MAMAMIA
+========================= */
+
+.home-difference {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.home-values {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.home-value {
+  display: flex;
+  align-items: flex-start;
+  gap: 17px;
+}
+
+.home-value > span {
+  flex-shrink: 0;
+  width: 35px;
+  height: 35px;
+  display: grid;
+  place-items: center;
+  background: #c9232d;
+  color: white;
+  border-radius: 50%;
+  font-weight: 900;
+}
+
+.home-value h3 {
+  font-size: 1.1rem;
+  font-weight: 850;
+  margin-bottom: 7px;
+}
+
+.home-value p {
+  color: #777;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* =========================
+   INFORMACIÓN DEL LOCAL
+========================= */
+
+.home-info {
+  background: #f5f3f1;
+  padding: 90px 0;
+}
+
+.home-info-card {
+  height: 100%;
+  padding: 30px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid #e9e9e9;
+  box-shadow: 0 7px 25px rgba(0, 0, 0, 0.04);
+}
+
+.home-info-icon {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+.home-info-card h3 {
+  font-size: 1.3rem;
+  font-weight: 850;
+  margin-bottom: 15px;
+}
+
+.home-info-card p {
+  color: #555;
+  margin-bottom: 8px;
+}
+
+.home-info-card > span {
+  color: #888;
+  font-size: 0.9rem;
+}
+
+.home-hours {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 15px;
+}
+
+.home-hour-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.home-hour-row strong {
+  color: #c9232d;
+  white-space: nowrap;
+}
+
+.home-info-card small {
+  color: #999;
+  font-size: 0.75rem;
+}
+
+/* =========================
+   LLAMADO FINAL
+========================= */
+
+.home-final {
+  padding: 85px 20px;
+  text-align: center;
+  color: white;
+  background: linear-gradient(120deg, #1c1919, #3b1719);
+}
+
+.home-final span {
+  color: #ff7777;
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.home-final h2 {
+  max-width: 750px;
+  margin: 18px auto;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+}
+
+.home-final p {
+  color: #ddd;
+  margin-bottom: 28px;
+}
+
+/* =========================
+   PIE DE PÁGINA
+========================= */
+
+.home-footer {
+  padding: 35px 0;
+  text-align: center;
+  color: #ddd;
+  background: #151515;
+}
+
+.home-footer-brand {
+  font-size: 1.5rem;
+  color: white;
+  margin-bottom: 10px;
+}
+
+.home-footer-brand strong {
+  color: #ed343d;
+}
+
+.home-footer p {
+  color: #aaa;
+  margin-bottom: 15px;
+}
+
+.home-footer small {
+  color: #777;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 768px) {
+  .home-hero {
+    min-height: 520px;
+  }
+
+  .home-hero-overlay {
+    padding: 75px 0;
+  }
+
+  .home-about,
+  .home-difference {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    padding-top: 65px;
+    padding-bottom: 65px;
+  }
+
+  .home-about-image img {
+    height: 300px;
+  }
+
+  .home-process,
+  .home-info {
+    padding: 65px 0;
+  }
+
+  .home-section-heading {
+    margin-bottom: 35px;
+  }
+
+  .home-final {
+    padding: 65px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .home-hero h1 {
+    font-size: 2.5rem;
+  }
+
+  .home-hero p {
+    font-size: 1rem;
+  }
+
+  .home-hero-buttons {
+    flex-direction: column;
+  }
+
+  .home-hero-buttons a {
+    text-align: center;
+  }
+
+  .home-hour-row {
+    font-size: 0.8rem;
+  }
+}

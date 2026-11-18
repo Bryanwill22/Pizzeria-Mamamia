@@ -1,22 +1,31 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { useContext, useState, useEffect } from "react";
 import { CartContext } from "../contexts/CartContext";
+import { GlobalContext } from "../contexts/GlobalContext";
 import "./Navbar.css";
 
 function Navbar() {
   const { totalCarrito, cartLength } = useContext(CartContext);
+  const { token, cerrarSesion } = useContext(GlobalContext);
 
   const [menuAbierto, setMenuAbierto] = useState(false);
-
   const location = useLocation();
 
-  // Cerrar el menú cada vez que cambia la vista
   useEffect(() => {
     setMenuAbierto(false);
   }, [location.pathname]);
 
+  const handleCerrarSesion = () => {
+    cerrarSesion();
+    setMenuAbierto(false);
+  };
+
   return (
-    <nav className="navbar navbar-expand-lg navbar-mamamia">
+    <nav
+      className={`navbar navbar-expand-lg navbar-mamamia ${
+        menuAbierto ? "menu-activo" : ""
+      }`}
+    >
       <div className="container py-2">
         {/* LOGO */}
         <Link className="navbar-brand brand-mamamia" to="/Home">
@@ -63,17 +72,33 @@ function Navbar() {
               Nuestras pizzas
             </NavLink>
 
-            <NavLink className="nav-link nav-mamamia" to="/Registro">
-              Registro
-            </NavLink>
+            {!token && (
+              <NavLink className="nav-link nav-mamamia" to="/Registro">
+                Registro
+              </NavLink>
+            )}
 
-            <NavLink className="nav-link nav-mamamia" to="/Login">
-              Iniciar sesión
-            </NavLink>
+            {!token && (
+              <NavLink className="nav-link nav-mamamia" to="/Login">
+                Iniciar sesión
+              </NavLink>
+            )}
 
-            <NavLink className="nav-link nav-mamamia" to="/Profile">
-              Mi perfil
-            </NavLink>
+            {token && (
+              <>
+                <NavLink className="nav-link nav-mamamia" to="/Profile">
+                  Mi perfil
+                </NavLink>
+
+                <NavLink
+                  className="nav-link nav-mamamia"
+                  to="/Login"
+                  onClick={handleCerrarSesion}
+                >
+                  Cerrar sesión
+                </NavLink>
+              </>
+            )}
           </div>
         </div>
       </div>

@@ -1,89 +1,182 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
+import { CartContext } from "../contexts/CartContext";
+import "./Pizzas.css";
+import { useNavigate } from "react-router-dom";
 
 function Pizzas() {
   const [productos, setProductos] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [error, setError] = useState("");
+  const { agregarCarrito } = useContext(CartContext);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    const getProducto = async () => {
+    const getProductos = async () => {
       try {
+        setCargando(true);
+        setError("");
+
         const res = await fetch("http://localhost:5000/api/pizzas");
 
         if (!res.ok) {
-          throw new Error("Error al obtener las pizzas");
+          throw new Error("No fue posible cargar las pizzas.");
         }
 
         const data = await res.json();
 
-        setProductos(Array.isArray(data) ? data : data.results || []);
+        const pizzas = Array.isArray(data)
+          ? data
+          : Array.isArray(data.results)
+            ? data.results
+            : [];
+
+        setProductos(pizzas);
       } catch (error) {
-        console.error("Error:", error);
+        console.error("Error al cargar pizzas:", error);
+        setError("No pudimos conectar con el servidor. Inténtalo nuevamente.");
       } finally {
         setCargando(false);
       }
     };
 
-    getProducto();
+    getProductos();
   }, []);
 
+  const formatearPrecio = (precio) => Number(precio).toLocaleString("es-CL");
+
   return (
-    <div className="container py-3">
-      {/* Titulo */}
-      <div className="text-center mb-10">
-        <h1 className="fw-bold">🍕 Pizza Mamamia</h1>
-        <p className="text-muted">Descubre nuestras deliciosas pizzas</p>
-      </div>
+    <main className="pizzas-page">
+      {/* ENCABEZADO */}
+      <section className="pizzas-header">
+        <span className="pizzas-etiqueta">HECHAS CON PASIÓN</span>
 
-      {/* Productos */}
-      <div className="row g-4">
-        {cargando ? (
-          <div className="text-center">
-            <div className="spinner-border text-danger"></div>
-            <p>Cargando pizzas...</p>
+        <h1>
+          Nuestras <span>pizzas</span>
+        </h1>
+
+        <p>
+          Ingredientes seleccionados, sabores irresistibles y el auténtico
+          espíritu de Italia.
+        </p>
+
+        <div className="pizzas-divider"></div>
+      </section>
+
+      {/* CARGANDO */}
+      {cargando && (
+        <div className="pizzas-estado">
+          <div className="spinner-border text-danger" role="status">
+            <span className="visually-hidden">Cargando...</span>
           </div>
-        ) : productos.length > 0 ? (
-          productos.map((p) => (
-            <div className="col-12 col-md-6 col-lg-4" key={p.id}>
-              <div className="card h-100 shadow-sm border-0">
-                {/* Imagen */}
-                <img
-                  src={p.img}
-                  className="card-img-top"
-                  alt={p.name}
-                  style={{
-                    height: "230px",
-                    objectFit: "cover",
-                  }}
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://placehold.co/400x300?text=Pizza";
-                  }}
-                />
+          <p>Preparando nuestro menú...</p>
+        </div>
+      )}
 
-                {/* Informacion */}
-                <div className="card-body d-flex flex-column">
-                  <h4 className="card-title text-capitalize fw-bold">
-                    {p.name}
-                  </h4>
+      {/* ERROR */}
+      {!cargando && error && (
+        <div className="pizzas-estado">
+          <div className="pizzas-error-icon">🍕</div>
+          <h3>¡Ups! Algo salió mal</h3>
+          <p>{error}</p>
+          <button
+            className="btn-reintentar"
+            onClick={() => window.location.reload()}
+          >
+            Volver a intentar
+          </button>
+        </div>
+      )}
 
-                  <p className="text-muted">{p.desc}</p>
+      {/* CATÁLOGO */}
+      {!cargando && !error && productos.length > 0 && (
+        <section className="container pb-5">
+          <div className="pizzas-resultados">
+            <span>{productos.length} variedades disponibles</span>
+          </div>
 
-                  <h5 className="text-danger fw-bold mt-auto">
-                    ${Number(p.price).toLocaleString("es-CL")}
-                  </h5>
+          <div className="row g-4">
+            {productos.map((pizza) => (
+              <div className="col-12 col-md-6 col-lg-4" key={pizza.id}>
+                <article className="pizza-card">
+                  {/* IMAGEN */}
+                  <div className="pizza-imagen-container">
+                    <img
+                      src={pizza.img}
+                      alt={pizza.name}
+                      className="pizza-imagen"
+                      loading="lazy"
+                      onError={(e) => {
+                        e.currentTarget.onerror = null;
+                        e.currentTarget.src =
+                          "https://placehold.co/600x400?text=Pizza+Mamamia";
+                      }}
+                    />
 
-                  <button className="btn btn-danger w-100 mt-2">
-                    🛒 Agregar al carrito
-                  </button>
-                </div>
+                    <span className="pizza-etiqueta">Pizza Mamamia</span>
+                  </div>
+
+                  {/* INFORMACIÓN */}
+                  <div className="pizza-info">
+                    <div className="pizza-titulo">
+                      <h3>{pizza.name}</h3>
+                      <span className="pizza-precio">
+                        ${formatearPrecio(pizza.price)}
+                      </span>
+                    </div>
+
+                    {/* INGREDIENTES */}
+                    {pizza.ingredients && (
+                      <div className="pizza-ingredientes">
+                        <span className="ingredientes-titulo">
+                          INGREDIENTES
+                        </span>
+
+                        <div className="ingredientes-lista">
+                          {(Array.isArray(pizza.ingredients)
+                            ? pizza.ingredients
+                            : String(pizza.ingredients).split(",")
+                          ).map((ingrediente, index) => (
+                            <span key={index} className="ingrediente-tag">
+                              {String(ingrediente).trim()}
+                            </span>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {/* BOTÓN */}
+                    <button
+                      className="pizza-boton"
+                      onClick={() => agregarCarrito(pizza)}
+                    >
+                      <span>🛒</span>
+                      Agregar al carrito
+                    </button>
+                    <br />
+                    <button
+                      onClick={() => navigate(`/detalle/${pizza.id}`)}
+                      className="pizza-boton"
+                    >
+                      {" "}
+                      <span>📖</span>ver detalle
+                    </button>
+                  </div>
+                </article>
               </div>
-            </div>
-          ))
-        ) : (
-          <p className="text-center text-danger">No se encontraron pizzas.</p>
-        )}
-      </div>
-    </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* SIN PRODUCTOS */}
+      {!cargando && !error && productos.length === 0 && (
+        <div className="pizzas-estado">
+          <div className="pizzas-error-icon">🍕</div>
+          <h3>Pronto tendremos pizzas para ti</h3>
+          <p>En este momento no hay productos disponibles.</p>
+        </div>
+      )}
+    </main>
   );
 }
 
